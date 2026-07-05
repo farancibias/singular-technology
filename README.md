@@ -111,11 +111,12 @@ Sin build. Cualquier host estático sirve el directorio raíz tal cual:
 
 El formulario de `#contacto` envía vía **Google Apps Script**, que reenvía el mensaje por Gmail a `contacto@singulargroup.net`. No requiere backend propio ni terceros.
 
-**Para activarlo (una sola vez):**
+**Estado: ✅ conectado y en producción.** El `ENDPOINT` ya está configurado en `index.html` (Web App desplegado en la cuenta Google del grupo) y el envío usa `fetch` en modo `no-cors`.
 
-1. Abre [`google-apps-script/Code.gs`](google-apps-script/Code.gs) y sigue las instrucciones del encabezado para desplegar el Web App en tu cuenta Google.
-2. Copia la URL del despliegue (termina en `/exec`) y pégala en `index.html`, en la constante `ENDPOINT` del `<script>` al final del archivo (busca `PEGAR_ID_DEL_DESPLIEGUE`).
-3. Prueba enviando un mensaje: debe llegar a la casilla y el sitio mostrar la confirmación.
+Para redeployar el backend a futuro (código en [`google-apps-script/Code.gs`](google-apps-script/Code.gs)):
+
+1. Edita el código en https://script.google.com y crea una **Nueva versión** de la implementación (la URL `/exec` se mantiene).
+2. **Importante:** en *"Quién tiene acceso"* debe quedar **"Cualquier persona"** (sin login); si no, los visitantes anónimos reciben una redirección a la pantalla de inicio de sesión de Google.
 
 Incluye validación nativa, estado de carga, mensajes de éxito/error y un honeypot anti-spam. Mientras el `ENDPOINT` no esté configurado, el formulario muestra un aviso en vez de simular un envío.
 
@@ -125,8 +126,8 @@ Incluye validación nativa, estado de carga, mensajes de éxito/error y un honey
 - [x] ~~Favicons (`favicon.svg`, PNG 32/16, `apple-touch-icon.png`).~~ — generados y enlazados.
 - [x] ~~Imagen social 1200×630 (`assets/og-image.jpg`).~~ — generada y referenciada en Open Graph/Twitter.
 - [x] ~~404.html con el mismo diseño.~~ — [`404.html`](404.html) autocontenida.
-- [ ] **Formulario:** pegar el `ENDPOINT` de Google Apps Script en `index.html` (ver sección anterior).
-- [ ] Conectar dominio `www.singulartechnology.cl` (DNS en el proveedor del dominio raíz).
+- [x] ~~**Formulario:** conectar al backend de Google Apps Script.~~ — conectado y probado end-to-end.
+- [x] ~~Conectar dominio `www.singulartechnology.cl`.~~ — GitHub Pages + Cloudflare DNS; publicado. *(HTTPS forzado se activa al terminar de emitirse el certificado Let's Encrypt.)*
 - [ ] Analytics (por definir: GA4, Plausible, Umami).
 - [ ] Reporte Lighthouse post-deploy (objetivo ≥ 90 en las 4 categorías).
 - [ ] (Opcional) `favicon.ico` clásico: no se generó por falta de herramienta local; los navegadores modernos usan `favicon.svg` + PNG.
