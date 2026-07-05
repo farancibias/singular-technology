@@ -1122,9 +1122,8 @@
 <!-- ============ CONTACT FORM · envío vía Google Apps Script (Gmail) ============ -->
 <script>
 (function(){
-  // ⟪REEMPLAZAR⟫ Pega aquí la URL del Web App de Google Apps Script (termina en /exec).
-  // Instrucciones de despliegue en README.md → "Formulario de contacto".
-  var ENDPOINT = "https://script.google.com/macros/s/PEGAR_ID_DEL_DESPLIEGUE/exec";
+  // URL del Web App de Google Apps Script (Gmail). Backend: google-apps-script/Code.gs.
+  var ENDPOINT = "https://script.google.com/a/macros/singular.la/s/AKfycbxSDsbWoXtrQOzQgKFUrHe7W2v2bLi5TsXdh41UH_14QWHlqshiL-mfjIxka60Z55eG/exec";
 
   var form   = document.getElementById('contactForm');
   var status = document.getElementById('formStatus');
@@ -1164,7 +1163,7 @@
     loading(true);
     setStatus('ok','Enviando su mensaje…');
 
-    fetch(ENDPOINT, { method:'POST', body:data })
+    fetch(ENDPOINT, { method:'POST', mode:'no-cors', body:data })
       .then(function(r){ return r.text().catch(function(){ return ''; }); })
       .then(function(){
         form.reset();
