@@ -1,0 +1,38 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.claude/
+
+# Node (por si se agrega tooling en el futuro)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Build outputs (no aplican hoy, prevención)
+dist/
+build/
+.next/
+.nuxt/
+out/
+
+# Logs
+*.log
+
+# Deploy artefactos
+.vercel/
+.netlify/

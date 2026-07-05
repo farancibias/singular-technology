@@ -1,0 +1,10 @@
+# Configuración de GitHub Pages (Jekyll).
+# El sitio es HTML estático; Jekyll solo copia los archivos tal cual.
+# Aquí excluimos del sitio PUBLICADO los archivos internos del proyecto
+# (siguen versionados en el repo, pero no quedan accesibles en la web).
+exclude:
+  - README.md
+  - CLAUDE.md
+  - PROMPT-CLAUDE-CODE.md
+  - google-apps-script/
+  - .gitignore
