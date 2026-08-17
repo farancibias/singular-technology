@@ -21,7 +21,7 @@
  */
 
 // Correo(s) que reciben los mensajes. Separa varios con coma.
-var DESTINO = "contacto@singulargroup.net";
+var DESTINO = "contacto@singulartechnology.cl";
 
 function doPost(e) {
   try {

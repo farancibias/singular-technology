@@ -78,7 +78,7 @@ Todas están linkeadas en la sección "Somos parte de":
 
 - Oficina: Av. Nueva Tajamar 555, WTC, Las Condes, Santiago, Chile
 - Teléfono: +56 9 2390 0707
-- Correo: contacto@singulargroup.net
+- Correo: contacto@singulartechnology.cl
 
 ## Cómo trabajar sobre este proyecto
 
@@ -109,7 +109,7 @@ Sin build. Cualquier host estático sirve el directorio raíz tal cual:
 
 ## Formulario de contacto (Google Apps Script + Gmail)
 
-El formulario de `#contacto` envía vía **Google Apps Script**, que reenvía el mensaje por Gmail a `contacto@singulargroup.net`. No requiere backend propio ni terceros.
+El formulario de `#contacto` envía vía **Google Apps Script**, que reenvía el mensaje por Gmail a `contacto@singulartechnology.cl`. No requiere backend propio ni terceros.
 
 **Estado: ✅ conectado y en producción.** El `ENDPOINT` ya está configurado en `index.html` (Web App desplegado en la cuenta Google del grupo) y el envío usa `fetch` en modo `no-cors`.
 

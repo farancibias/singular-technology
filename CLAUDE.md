@@ -48,6 +48,6 @@ Ver el bloque "Pendientes conocidos" al final de `README.md`.
 
 - Oficina: Av. Nueva Tajamar 555, WTC, Las Condes, Santiago, Chile
 - Teléfono: +56 9 2390 0707
-- Correo institucional: contacto@singulargroup.net
+- Correo institucional: contacto@singulartechnology.cl
 - Dominio raíz del grupo: singulargroup.net
 - Subdominio de destino de este sitio: `www.singulartechnology.cl` (aún no configurado)
