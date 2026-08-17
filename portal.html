@@ -62,15 +62,6 @@
     box-shadow:var(--shadow-md); padding:32px;
   }
 
-  /* ============ AVISO ============ */
-  .notice{
-    display:flex; gap:10px; align-items:flex-start;
-    background:#FFF8EC; border:1px solid #F5D9A8; border-left:3px solid var(--orange);
-    border-radius:var(--r-md); padding:12px 14px; margin-bottom:24px;
-    font-size:13px; color:#6B4E12; line-height:1.5;
-  }
-  .notice svg{flex:none; width:16px; height:16px; margin-top:1px; color:var(--orange-h);}
-
   /* ============ FORM ============ */
   .field{margin-bottom:16px;}
   .field label{display:block; font-size:13px; font-weight:600; color:var(--squid); margin-bottom:6px;}
@@ -167,11 +158,6 @@
       </div>
 
       <div class="card">
-
-        <div class="notice" role="status">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          <div><strong>El portal aún no está habilitado.</strong> Esta pantalla es una vista previa: el formulario no valida credenciales ni envía datos a ningún servidor.</div>
-        </div>
 
         <form id="loginForm" novalidate>
           <div class="field">
