@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal cliente — Singular Technology Group</title>
+<meta name="description" content="Acceso al portal de clientes de Singular Technology Group.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#232F3E">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ============ RESET ============ */
+  :root{
+    --squid:#232F3E; --squid-deep:#161E2D; --squid-2:#31465F;
+    --orange:#FF9900; --orange-h:#EC7211;
+    --link:#0073BB; --link-h:#005276;
+    --ink:#16191F; --ink-2:#545B64; --ink-3:#879196;
+    --line:#E9EBED; --line-2:#D5DBDB;
+    --bg:#FFFFFF; --bg-alt:#FAFAFA;
+    --r-sm:2px; --r-md:4px; --r-lg:8px;
+    --shadow-md:0 2px 4px rgba(0,28,36,.10), 0 4px 12px rgba(0,28,36,.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:var(--bg-alt); color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+    font-size:15px; line-height:1.55; -webkit-font-smoothing:antialiased;
+    min-height:100vh; display:flex; flex-direction:column;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1240px; margin:0 auto; padding:0 32px; width:100%;}
+
+  /* ============ NAV ============ */
+  header{border-bottom:1px solid var(--line); background:#fff;}
+  header::after{content:""; display:block; height:3px; background:var(--squid);}
+  nav{display:flex; align-items:center; justify-content:space-between; padding:16px 0;}
+  nav .brand img{height:40px; width:auto;}
+  nav .home{
+    font-size:13px; font-weight:600; color:var(--ink-2);
+    border:1px solid var(--line); border-radius:var(--r-md); padding:8px 16px;
+    transition:border-color .15s, color .15s;
+  }
+  nav .home:hover{border-color:var(--ink-3); color:var(--ink);}
+
+  /* ============ MAIN ============ */
+  main{flex:1; display:flex; align-items:center; padding:56px 0;}
+  .login{max-width:420px; margin:0 auto; width:100%;}
+  .login-head{text-align:center; margin-bottom:28px;}
+  .glyph{width:56px; height:56px; margin:0 auto 20px;}
+  h1{font-size:26px; font-weight:800; letter-spacing:-0.02em; color:var(--squid); margin-bottom:8px;}
+  .login-head p{font-size:14px; color:var(--ink-2);}
+
+  .card{
+    background:#fff; border:1px solid var(--line-2); border-radius:var(--r-lg);
+    box-shadow:var(--shadow-md); padding:32px;
+  }
+
+  /* ============ AVISO ============ */
+  .notice{
+    display:flex; gap:10px; align-items:flex-start;
+    background:#FFF8EC; border:1px solid #F5D9A8; border-left:3px solid var(--orange);
+    border-radius:var(--r-md); padding:12px 14px; margin-bottom:24px;
+    font-size:13px; color:#6B4E12; line-height:1.5;
+  }
+  .notice svg{flex:none; width:16px; height:16px; margin-top:1px; color:var(--orange-h);}
+
+  /* ============ FORM ============ */
+  .field{margin-bottom:16px;}
+  .field label{display:block; font-size:13px; font-weight:600; color:var(--squid); margin-bottom:6px;}
+  .field input{
+    width:100%; background:#fff; border:1px solid var(--line-2);
+    padding:10px 12px; font-family:inherit; font-size:14px; color:var(--ink);
+    border-radius:var(--r-md); transition:border-color .15s, box-shadow .15s;
+  }
+  .field input:focus{outline:none; border-color:var(--link); box-shadow:0 0 0 2px rgba(0,115,187,.15);}
+  .pw-wrap{position:relative;}
+  .pw-wrap input{padding-right:74px;}
+  .pw-toggle{
+    position:absolute; right:6px; top:50%; transform:translateY(-50%);
+    background:none; border:0; font-family:inherit; font-size:12px; font-weight:600;
+    color:var(--link); cursor:pointer; padding:6px 8px; border-radius:var(--r-sm);
+  }
+  .pw-toggle:hover{color:var(--link-h); background:var(--bg-alt);}
+  .pw-toggle:focus-visible{outline:2px solid var(--link); outline-offset:1px;}
+
+  .row{display:flex; align-items:center; justify-content:space-between; gap:12px; margin:18px 0 22px;}
+  .remember{display:flex; align-items:center; gap:8px; font-size:13px; color:var(--ink-2); cursor:pointer;}
+  .remember input{width:15px; height:15px; accent-color:var(--squid); cursor:pointer;}
+  .forgot{font-size:13px; font-weight:600; color:var(--link);}
+  .forgot:hover{color:var(--link-h); text-decoration:underline;}
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    width:100%; font-family:inherit; font-size:14px; font-weight:700;
+    border:1px solid transparent; border-radius:var(--r-md); padding:12px 24px;
+    cursor:pointer; transition:background .15s, color .15s;
+  }
+  .btn.primary{background:var(--orange); color:var(--squid);}
+  .btn.primary:hover{background:var(--orange-h); color:#fff;}
+
+  .status{
+    display:none; margin-top:16px; padding:11px 13px; border-radius:var(--r-md);
+    font-size:13px; line-height:1.5;
+    background:#EEF6FC; border:1px solid #B8DDF3; color:#0B4E75;
+  }
+  .status.show{display:block;}
+
+  .alt{
+    margin-top:24px; padding-top:20px; border-top:1px solid var(--line);
+    text-align:center; font-size:13px; color:var(--ink-2);
+  }
+  .alt a{color:var(--link); font-weight:600;}
+  .alt a:hover{color:var(--link-h); text-decoration:underline;}
+
+  /* ============ FOOTER ============ */
+  footer{background:var(--squid-deep); color:#879196; padding:24px 0; font-size:13px;}
+  footer .wrap{display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;}
+  footer a{color:#B4C0CC;}
+  footer a:hover{color:#fff;}
+
+  @media (max-width:600px){
+    .wrap{padding:0 20px;}
+    main{padding:32px 0;}
+    .card{padding:24px 20px;}
+    nav .brand img{height:34px;}
+    .row{flex-direction:column; align-items:flex-start; gap:10px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important; animation:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header>
+  <nav class="wrap">
+    <a href="/" class="brand" aria-label="Singular Technology Group — Inicio">
+      <img src="assets/logo.jpg" alt="Singular Technology Group">
+    </a>
+    <a href="/" class="home">Ir al inicio</a>
+  </nav>
+</header>
+
+<!-- ============ MAIN · LOGIN ============ -->
+<main>
+  <div class="wrap">
+    <div class="login">
+
+      <div class="login-head">
+        <svg class="glyph" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#232F3E"/>
+          <path d="M22 29v-5a10 10 0 0 1 20 0v5" fill="none" stroke="#FF9900" stroke-width="3" stroke-linecap="round"/>
+          <rect x="18" y="29" width="28" height="21" rx="4" fill="#FF9900"/>
+          <circle cx="32" cy="38" r="3.2" fill="#232F3E"/>
+          <rect x="30.6" y="39" width="2.8" height="6" rx="1.4" fill="#232F3E"/>
+        </svg>
+        <h1>Portal cliente</h1>
+        <p>Acceso para clientes de Singular Technology Group.</p>
+      </div>
+
+      <div class="card">
+
+        <div class="notice" role="status">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <div><strong>El portal aún no está habilitado.</strong> Esta pantalla es una vista previa: el formulario no valida credenciales ni envía datos a ningún servidor.</div>
+        </div>
+
+        <form id="loginForm" novalidate>
+          <div class="field">
+            <label for="lg-email">Correo corporativo</label>
+            <input id="lg-email" name="email" type="email" autocomplete="username" placeholder="nombre@empresa.cl" required>
+          </div>
+
+          <div class="field">
+            <label for="lg-pass">Contraseña</label>
+            <div class="pw-wrap">
+              <input id="lg-pass" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required>
+              <button type="button" class="pw-toggle" id="pwToggle" aria-label="Mostrar contraseña" aria-pressed="false">Mostrar</button>
+            </div>
+          </div>
+
+          <div class="row">
+            <label class="remember" for="lg-remember">
+              <input type="checkbox" id="lg-remember" name="remember">
+              Mantener sesión iniciada
+            </label>
+            <a href="#" class="forgot">¿Olvidó su contraseña?</a>
+          </div>
+
+          <button type="submit" class="btn primary">Ingresar</button>
+
+          <div class="status" id="loginStatus" role="status" aria-live="polite"></div>
+        </form>
+
+        <div class="alt">
+          ¿Aún no tiene acceso? <a href="/#contacto">Escríbanos</a> y le habilitamos una cuenta.
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div>© 2026 Singular Technology Group SpA</div>
+    <div><a href="/">www.singulartechnology.cl</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var form   = document.getElementById('loginForm');
+  var status = document.getElementById('loginStatus');
+  var toggle = document.getElementById('pwToggle');
+  var pass   = document.getElementById('lg-pass');
+
+  // Mostrar/ocultar contraseña.
+  toggle.addEventListener('click', function(){
+    var shown = pass.type === 'text';
+    pass.type = shown ? 'password' : 'text';
+    toggle.textContent = shown ? 'Mostrar' : 'Ocultar';
+    toggle.setAttribute('aria-label', shown ? 'Mostrar contraseña' : 'Ocultar contraseña');
+    toggle.setAttribute('aria-pressed', shown ? 'false' : 'true');
+  });
+
+  // Placeholder: no hay backend todavía, así que no se envía nada.
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    status.textContent = 'El portal de clientes está en desarrollo. Por ahora no es posible iniciar sesión; escríbanos a contacto@singulartechnology.cl y le ayudamos.';
+    status.classList.add('show');
+  });
+})();
+</script>
+
+</body>
+</html>
